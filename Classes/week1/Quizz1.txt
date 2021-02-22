@@ -1,0 +1,51 @@
+Here I have what i tried in the first quizz.
+function foo() {
+            return true;
+        }
+        document.writeln(foo());
+
+        document.writeln("test");
+
+        function foo() {
+            return true;
+        }
+        document.writeln(foo);
+
+        document.writeln("test");
+
+        //const foo = () => true;
+        //document.writeln(foo());
+
+        //function foo () {
+          //  true;
+        //}
+        //document.writeln(foo());
+
+        const fooi = () => true;
+        document.writeln(fooi());
+
+        document.writeln("test2");
+
+        function one(x) {
+            return x;
+        }
+        function two(x, y){
+            return x+y;
+        }
+        function three(x, y, z) {
+            return x + y +z;
+
+        }
+        
+        const functions = [null, one, two, three];
+        document.writeln(functions[1](1));
+        document.writeln("test3"); 
+
+        function id(x){
+            return x;
+        }
+
+    //This one the last exercise. I did not managed to do it well. 
+    //at the last try i made a mistake on the name of the function.
+    //It was plus. not sum.
+    const plus = x,y => arg => callme(arg);

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Tests</title>
+</head>
+<body>
+    <script>
+        document.writeln("true");
+        
+        function fun1() { return 1;}
+        //writeIn are tests
+        document.writeln(fun1() === 1);
+        document.writeln(fun1(42) === 1);
+
+        function fun2() { return 1; }
+        function fun2(arg) { return arg; }
+        //If i have 2 same name of functions the first one will be ignored. There is no way to have 2 functions with the same name (JAVAScript basics) 
+        //it does not give back number 1 due to the arg that is being passed. fun2 is being ignored.
+        document.writeln ( fun2() !== 1 );
+        document.writeln ( fun2() === undefined );
+        document.writeln ( fun2(42) === 42 );
+
+        function noReturn() { 1;}
+        //You cant  miss an return in javaScript. Remember to Always return. Since JavaScript wont tell you, cause we are not compiling the code so it wont fail.
+        document.writeln (noReturn() );
+        //Curly braces mean you have statements. without them is not an lack of code, just an expression so you dont need a return.
+
+        const noReturn2 = () => { 1; };
+        const noReturn3 = () =>  1;
+        
+        document.writeln(noReturn() !==1 );
+        document.writeln(noReturn2() !==1 );
+        document.writeln(noReturn3() ===1 );
+        //Down you are not calling the function, we are just refeering to fun1
+        const myfun = fun1;
+        const funs = [null, undefined, fun1, fun2];
+        
+        document.writeln( myfun() === 1 );
+        document.writeln( funs[2]() === 1 );
+        //funs[2] refeers to an array.
+        // JavaScript is very diferent from java.
+        // At Js we have no compiler. you can be more flexible at JavaScript 
+        function doit( waszutunist) {
+            return function bla(arg) { return waszutunist(arg) } /*  from one Function, you return a new function which will call what was passed in the beginning  */
+        }
+        //Fun1 always return number 1. 
+        document.writeln( doit(fun1)(10) === 1);
+        document.writeln( doit(fun2)(10) === 10); 
+        //Down here we are going to use lambda expressions  doit2 does  the same as doit 
+        const doit2 = callme => arg => callme(arg); /* Very often used code in class. Better get use to it */
+
+        document.writeln( doit2(fun1)(10) === 1);
+
+        const doFun2 = doit2(fun1); /* Parcially applied function*/
+
+        document.writeln( doFun2(10) === 1 );
+        document.writeln( doFun2() === 1 );
+        document.writeln("test");
+        //you can re-write the code.
+       
+
+    </script>
+    
+  
+
+</body>
+</html>
