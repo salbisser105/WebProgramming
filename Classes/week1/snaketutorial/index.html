@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Tutorial</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: black;
+        }
+
+        #game-board {
+            background-color: #ccc;
+            width: 100vmin;
+            height: 100vmin;
+            display: grid; /*  Allows us to have same divitions in our page. in this case 21 columns and 21 rows. */
+            grid-template-columns: repeat(21,1fr);
+            grid-template-rows: repeat(21,1fr);
+
+        }
+
+        .snake {
+            background-color: green;
+            border: .25vmin solid black;/* Allows our snake and our food to scale  */
+        }
+        .food {
+            background-color: grey;
+            border: .25vmin solid black;
+        }
+    </style>
+    <script src="game.js" defer type= "module">  /*   This module lets the file know that we will be using imports and exports. not only one major class*/
+
+    </script>
+</head>
+<body>
+    <!--Following the How to code the snake game in Java script. https://www.youtube.com/watch?v=QTcIXok9wNY-->
+    <div id="game-board">
+
+    </div>
+</body>
+</html>
