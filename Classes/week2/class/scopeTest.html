@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope Tests</title>
+</head>
+<body>
+    
+    <script>
+        const x= 1;
+        //NEVER USE VAR  -- ALWAYS USE LET OR CONST.. when using JS variables.
+        function foo(){
+            const x = 0;
+            console.log(x);
+        }
+        foo();
+        //We are making an function expression down here, gives the opportunity to without introducing a new name having a localScope its called function expression
+        (/*function*/ /*()*/ _=>{ // in this line we have 3 ways to start an function expression 
+            const x = 0;
+            console.log(x);
+        })(); //IIFE  can be called also with the lambda expresion 
+        //blog
+        {
+            const x =0;
+            console.log(x);
+        }
+
+        document.writeln(x ===1 );
+
+        // const id = x => x;
+        // document.writeln(id(id) === id);
+        document.writeln("test");
+
+        const id = x => x;
+        const konst = x => y => x;
+        //const kite = x => konst(id)(x); //Returns second argument(y)
+        const kite = konst(id);
+        //const kite = x => id;
+        document.writeln(id(id) === id);
+        document.writeln(konst(id)(undefined) === id);
+        document.writeln(konst(id)(undefined) === konst);
+        document.writeln(kite(undefined)(id) === id);
+
+        document.writeln("test");
+       
+
+
+    </script>
+
+
+
+</body>
+</html>

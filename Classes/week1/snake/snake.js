@@ -18,13 +18,13 @@ let snake = [
 let food = {x: 15, y: 15};
 
 function snakeEquals(a, b) { 
-	/* fill here. here it is making a constant evaluation  */
+	/*  here it is making a constant evaluation  */
     return  a.x === b.x && a.y === b.y;
 }
 
 function changeDirection(orientation) {
-    /* fill here. It changes the direction based on the times we press the arrow at keyboard.
-    Ill do another tutorial in order to get it better.
+    /*  It changes the direction based on the times we press the arrow at keyboard.
+    Ill do another tutorial in order to get it working according to what arrow we press..
     */
     const idx = orientation.indexOf(direction);
     direction = orientation[idx + 1];
@@ -38,8 +38,9 @@ function start() {
 
     const rightArrow = 39;
     const leftArrow  = 37;
+    /*   evt => implements a listener on our code. */
     window.onkeydown = evt => {
-        const orientation = (evt.keyCode === rightArrow) ? clockwise : countercw;
+        const orientation = (evt.keyCode === rightArrow) ? clockwise : countercw; /* if we have a right arrow we do clockwise otherwise we do countercw */
         changeDirection(orientation);
     };
 
