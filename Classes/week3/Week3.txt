@@ -1,0 +1,49 @@
+//Console log Goodie.
+const longRunning = x =>{
+    out.textContent += "...";
+    setTimeout(_=>out.textContent += " " + x,1000*2)
+}
+
+console.error("error",longRunning("error"));
+console.warn("warn",longRunning("warn"));
+console.info("info",longRunning("info"));
+console.log("log",longRunning("log"));
+console.debug("debug",longRunning("debug"));
+
+/* Constants
+
+const LEVEL_NONE = -1;
+const LEVEL_ERROR = 0;
+const LEVEL_WARN = 1;
+const LEVEL_INFO = 2;
+const LEVEL_LOG = 3;
+const LEVEL_DEBUG = 4;
+let logLevel = LEVEL_LOG;
+
+const error = args=> {if (logLevel=> LEVEL_ERROR) console.error(getArgs()); }
+const warn = args=> {if (logLevel=> LEVEL_WARN) console.error(getArgs()); }
+const info = args=> {if (logLevel=> LEVEL_INFO) console.error(getArgs()); }
+const log = args=> {if (logLevel=> LEVEL_LOG) console.error(getArgs()); }
+const error = debug=> {if (logLevel=> LEVEL_DEBUG) console.error(getArgs()); }
+
+const logAll =() => {
+    error( () => ["error" , longRunning("error")]);
+    warn(  () => ["warn"   , longRunning("warn")]);
+    info(  () => ["info"   , longRunning("info")]);
+    log(   () => ["log"     , longRunning("log")]);
+    debug( () => ["debug" , longRunning("debug")]);
+}
+
+// logLevel = LEVEL_NONE if we dont want to see any error logs
+// logLevel = LEVEL_DEBUG if we want to see all warnings or states.
+
+// --------------------------------------------- //
+
+// Goal 
+Becoming creating with
+-High Order Functions
+-Using the Lambda Scope
+
+To do at home 
+use Pair and T/F in snake
+JavaScript Scope Chains and Closures

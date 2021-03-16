@@ -1,0 +1,46 @@
+//Topic for today spread and rest operator 
+(a,b) vs .a=>b=>
+
+//Multiple arguments
+const times = (a,b) =>a*b;
+times(2) //error messagew
+
+//Argument chain, "curried"
+const times = a =>b =>a*b;
+times(2) //    useful
+---------
+partial application: map
+const times = a =>b => a*b;
+const twoTimes = times(2);
+[1, 2, 3].map(x => times(2)(x)); //Normal use 
+[1, 2, 3].map(times(2)); // 
+[1, 2, 3].map(twoTimes);
+
+//filter
+x=>x %2 ===1
+Partial filter
+const odd x=>x %2 ===1
+[1, 2, 3].filter(x => x % 2 === 1); //Normal use 
+[1, 2, 3].filter(x=> odd(x)); // 
+[1, 2, 3].filter(odd);
+
+-------
+acc = accumulator, cur = current element 
+reduce((acc,cur) => acc + cur)
+[1, 2, 3, 4].reduce((acc,cur) => acc + cur);
+//returns 6 
+[1, 2, 3, 4].reduce((acc,cur) => acc + 1);
+//returns 7
+--- 
+un-partial reduce
+const plus = (accu, cur) => accu + cur;
+[1, 2, 3].reduce((acc,cur) => acc + cur);
+[1,2,3].reduce(plus);
+//varian with initial accu value as 2nd arguments
+//then cur starts at first element
+[1,2,3].reduce(plus,0)
+
+Functions everywhere
+Literal scope (IIFE)
+capturing scope closures 
+

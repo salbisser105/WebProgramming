@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Tutorial</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        canvas { height: 70%; position:fixed ; width: 70%;}
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+
+    <script type = "text/javascript">
+
+    const Ball = function(x,y,radius) {
+        this.x = x;
+        this.y = y;
+        this.direction = Math.random() * Math.PI *2;
+        this.radius = radius;
+        this.color = "white";
+        this.speed= Math.random() *3 +1;
+
+    };
+    Ball.prototype = {
+        updatePosition:function(width, height){
+            this.x += Math.cos(this.direction) * this.speed;
+            this.y += Math.sin(this.direction)* this.speed; // We convert them into quartision 
+
+            if (this.x- this.radius <0){
+                
+                this.x = this.radius;
+                this.direction = Math.atan2(Math.sin(this.direction),Math.cos(this.direction) * -1); //converses carditian coordenates.
+                
+            }else if (this.x + this.radius > width){
+                this.x= width- this.radius;
+                this.direction = Math.atan2(Math.sin(this.direction),Math.cos(this.direction) * -1); //converses carditian coordenates.
+            }
+            if (this.y- this.radius <0){
+                
+                this.y = this.radius;
+                this.direction = Math.atan2(Math.sin(this.direction)* -1,Math.cos(this.direction) ); //converses carditian coordenates.
+                
+            }else if (this.y + this.radius > height){
+                this.y= height- this.radius;
+                this.direction = Math.atan2(Math.sin(this.direction)* -1,Math.cos(this.direction) * -1); //converses carditian coordenates.
+            }
+
+        }
+    }
+    const context = document.querySelector("canvas").getContext("2d"); //using var just because tutorial remember to change it 
+  
+    let balls = new Array();
+    let x = document.documentElement.clientWidth *0.5;
+    let y = document.documentElement.clientHeight *0.5;
+
+    for (let index = 0; index<10; index ++) {
+        balls.push(new Ball(x,y, 25));
+    }
+
+
+
+    function loop(){ // Call it self
+        window.requestAnimationFrame(loop);
+        
+
+        let height= document.documentElement.clientHeight;
+        let width = document.documentElement.clientWidth;
+
+        
+        context.canvas.height = height;
+        context.canvas.width = width; //Resizes canvas to window
+        
+        
+        for (let index = 0; index<balls.length; index ++) {
+            let ball = balls[index];
+            
+        //build ball
+        context.fillStyle= ball.color;
+        context.beginPath();
+        context.arc(ball.x, ball.y, ball.radius, 0, Math.Pi*2, false);
+        context.fill();
+
+        ball.updatePosition(width,height);
+        }
+
+        
+
+
+
+    }
+    loop();
+
+    </script>
+</body>
+</html>

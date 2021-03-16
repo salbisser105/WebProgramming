@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Tutorial</title>
+</head>
+
+
+
+<body>
+    <canvas id="gameCanvas" width="400" height="300"> </canvas>
+    <script>
+        
+        //declare Variables
+        const FPS = 30; //frames per second;
+        const bs = 30; // ball size
+        let bx, by; //NEVER USE VAR -- only CONST OR LET 
+        let xv, yv; // velocity per frame
+        
+
+        //load canvas
+        const canvas = document.getElementById("gameCanvas");
+        const context = canvas.getContext("2d");
+
+        //set up interval (game loop)
+        setInterval(update, 1000 / FPS); // update function
+
+        //ball starting position
+         bx = canvas.width / 2;
+         by = canvas.heigth / 2;
+        //Random ball starting speed (between 100 pixels per second and 200 pps)
+         xv = Math.floor(Math.random() * 76 + 25) / FPS;
+         yv = Math.floor(Math.random() * 76 + 25) / FPS;
+
+        //Random ball direction 
+        if (Math.floor(Math.random()* 2) == 0 ){
+            xv = -xv;
+        }
+        if (Math.floor(Math.random()* 2) == 0 ){
+            yv = -yv;
+        }
+        update();
+        // update function
+
+        function update() {
+
+            //move the ball
+            bx += xv;
+            by += yv;
+
+            //bounce the ball of each wall
+            if (bx - bs / 2 < 0 && xv< 0){
+                xv = -xv;
+            }
+            if (bx + bs / 2 > canvas.width  && xv >0){
+                xv = -xv;
+            }
+            if (by - bs / 2 < 0 && yv< 0){
+                yv = -yv;
+            }
+            if (by + bs / 2 > canvas.heigth  && yv >0){
+                yv = -yv;
+            }
+
+            //draw background and ball 
+            context.fillStyle = "black";
+            context.fillRect(0, 0, canvas.width, canvas.heigth);
+            context.fillStyle = "blue";
+            context.fillRect(bx - bs / 2, by - bs / 2, bs, bs);
+        }
+        
+            //This tutorial did not work.... Anyways uploading it in order to have it as experience.
+            //Trying to do some stuff to get it to work. Will work on other tutorial more complete 
+    </script>
+</body>
+
+</html>
