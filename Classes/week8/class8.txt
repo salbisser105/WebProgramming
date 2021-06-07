@@ -1,0 +1,58 @@
+Week 8
+Moves
+-Programing is an activity 
+- What is the nature of this activity?
+- What are the parts 
+
+Recognize Moves 
+Become aware what you do 
+We program collaboratively and look for moves
+
+Task1: improve the tests
+
+More Structure
+Better reports when tests fail 
+
+Moves your choice
+what conuts is your moves, not mine
+There are signal -reaction schemes 
+try to have multiple options 
+
+0: Explore
+Technical feasibility, hypotheses, border cases
+the goal is to learn and verify, delete when finished 
+give yourself a timebox 
+
+1: Start at the end
+Make static "sketch" of the result before adding dynamic features (FITYMI)
+1 b) dynamic sketches,
+e.g all JS, css in a single html file 
+2: Extract
+Replace static 
+
+
+3: Abstract  
+discover the concept behind what you 
+have extracted. give it a name
+It should work for itself and in combination
+revert if you cannot find one 
+4: Reorganize
+Organize and re-feactor to make your future work easier
+facilitate extensions or improvements 
+prepare for release 
+
+5:
+
+6: Retrospective 
+what to keep? 
+what to try differently next time 
+
+Observations
+Balance and distance 
+which technologies support my moves: 
+dynamic exploration, refactoring 
+Per feature , per project, whole career,...
+
+Work at home 
+Adapt all existing test cases to the new testing api 
+extend or improve the todo-list example to your liking 

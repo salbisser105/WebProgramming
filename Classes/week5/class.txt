@@ -1,0 +1,44 @@
+//Today: Scripting
+Progressive web app for testing
+general-purpose function plotter
+excel in the broweser
+Quiz
+
+Why scripting?
+Command line, automation, build system, templating, code istribution, formulae, bussines rules, smart configuration,
+product lines, dsl, self-modifying code.
+
+Scripting characteristics
+interpreted, not compiled ( in principle) //we get source code.
+Lenient type system
+"Best effort" approach
+
+Progressive web app
+<script> tag static
+<script> tag dynamically added
+Code, that produces code,
+gets interpreted,
+and thereby produces code, that..
+
+function plotter: eval
+eval() works as if the code was copied verbatim
+example: Eval("1+1")
+const code = "1" ; eval(code+"+1");
+
+function plotter function
+function() is like eval() but declares 
+parameters and executes in the global
+scope. it creates a reference.
+const add = Function('x','y', 'return x+y'); //
+add(1,2);
+add(2,3); // no need to re-parse
+
+What scripting is used for:
+Content source code, auto evualate 
+*Test automation.
+*Self-modifying CODE. 
+*Distributing code for execution on other machines
+*Dynamic business rules
+* Evaluation of user-defined functions
+*Evaluation of dynamically composed strings
+

@@ -1,0 +1,28 @@
+Observable 
+Example: 
+Const Observable = value => { // Observable goes in capital letter first one 
+    const listeners = []; // Many 
+    return {
+        onChange: callback => listeners.push(callback),
+        getValue: () => value,
+        setValue: val => {
+            if(value === val) return; // Protection 
+            value= val;
+            listeners.forEach(notify=> notify(val)); 
+        }
+    }
+}
+
+
+We register on change on observable --> we keep a track on the valor we ar etracking 
+ 
+ Observer modifies observable
+
+Observable pattern always works with muliple threads --> false 
+The observable pattern allows to keep vlaues in sync true 
+The observable pattern allows to react to value changes -> true 
+The observable pattern always work asynchronously --> False 
+The observable pattern allows to keep views in sync with models -> true 
+The observable pattern has many variants and can be implemented in various way -> true 
+The observable pattern decouples information providers from information consumers -> true 
+the observable pattern has only one implementation ->false 

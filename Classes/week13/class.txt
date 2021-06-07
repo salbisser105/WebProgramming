@@ -1,0 +1,53 @@
+Why modules?
+Organize code
+clear dependencies
+avoid errors: globals, scoping,namespace 
+
+--
+Distinguish:
+-How i want to edit the code
+-How i want to deliver the code 
+
+Es6 Modules are not
+Packages (those have versions)
+dependencies libraries, releasees
+Units of publication
+Objects  
+
+Distinction
+package manager:
+webpack, npm, bower, yarn..
+build tools:
+webpack, npm, grunt, gulp
+
+A module is a code that 
+uses "import " oder "export"
+==
+imports or exports modules 
+
+Modules are always async ..
+
+
+Impact l 
+implicit"use strict"
+exports are read only 
+
+no global object, no global this 
+no global hoisting 
+implicit "defer " mpde.
+ => document.writeln is no longer useful 
+
+ impact ll 
+ modules are namespaces 
+ modules are singletons 
+SOP 
+ Modules are subject to the sop 
+ Problem zur Entwicklungszeit: das File system ist ein null origin 
+
+Useful tools 
+Developer Mode (suppress sop)
+Local webserver 
+Bundler (rollup, parce,webpack, ...)
+Start browser in debug mode
+
+write javascript files in modules --> improves the way you code 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Tests</title>
+</head>
+
+<body>
+    <script>
+        
+        const testNames = [
+            "function",
+            "lambda",
+            "snake",
+            "quizz5"
+        ];
+        testNames.forEach(name => {
+            document.writeln(`<script src=${name}/${name}.js"></` + 'script>');
+            document.writeln(`<script src=${name}/${name}Test.js"></` + 'script>');
+        });
+    </script>
+    <!--With the script from up we are saving this different scripting.-->
+    <!-- <script src="function/function.js"></script>
+    <script src="function/functionTest.js"></script>
+
+    <script src="lambda/lambda.js"></script>
+    <script src="lambda/lambdaTest.js"></script>
+
+    <script src="snake/snake.js"></script>
+    <script src="snake/snakeTest.js"></script> -->
+
+
+</body>
+
+</html>

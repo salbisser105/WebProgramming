@@ -1,0 +1,125 @@
+Goal of today classes.
+Keywords: class, extends.
+"inheritance" through prototypes
+Dynamic Dispatch, Refactoring Tests
+<Exkurs/>,Quiz
+js objects are maps 
+Open, dynamic.
+cont good = {
+    fn: "good,
+    ln: "boy",
+    getname: function(){
+        return this.firstname + "" + this.lastname
+    }
+
+}
+//No safety but super dynamic
+//Unobvious how to share structure
+
+Closed, explicity 
+function Person(first,last) {
+    let firstname = first;
+    let lastname = last;
+    return {
+        getName: function() {
+            return firstname + "" + lastname} 
+        }
+    }
+}
+//Best safety, easy to share structure, but no class
+
+Mixed, classified
+
+const Person = ( () => {
+    function Person(fir,last){ //lexical scope 
+        this.firstname = first; // ctor, binding 
+        this.lastname = last;
+
+    }
+    Person.prototype.getName = function {
+        return this.firstname + "" this.lastame;
+    }
+    return Person;
+
+}) (); //IIFE
+//new Person("Good", "Boy") instance of person 
+
+class Keyword 
+Syntactic sugar for variant 3
+(Mixed, classified)
+Since ES6
+
+class Example
+
+const Person = ( () => {
+    function Person(fir,last){ //lexical scope 
+        this.firstname = first; // ctor, binding 
+        this.lastname = last;
+
+    }
+    getName (){
+        return this.firstname + "" this.lastame;
+    }
+
+}) (); //IIFE
+//new Person("Good", "Boy") instance of person 
+
+extends Example
+class Student extends Person {
+    constructor(first,last, grade) {
+        super(first, last);
+        this.grade = grade; 
+    }
+}
+const s = new Student("Top", "Student", 5.5);
+//Never forget to call super 
+
+Functions are Objects 
+They have the prototype property
+it references an object that
+- has a name ("Type")
+-has a constructor(Type function)
+- has itself a prototype
+
+Objects are functions 
+Not in the sense of JavaScript functions
+but in the sense of computer science,
+they are functions(in the general sense)
+from their keys to their values.
+prototype chain
+Student (prototype) -> Person(prototype) -> Object(prototype)
+
+const s = new Student()
+// s.__proto__ ===student.prototype;
+//Object.getPrototypeOf(s) === Student.prototype;
+// => s instanceof Student
+
+Prototype ++ 
+Since a prototype is an object,
+it can be modified and extended
+
+one can replace the prototype at 
+runtime, essentially changing the "type"
+Object.setPrototypeOf(obj,proto);
+Dynamic Dispatch 
+Properties (and also functions) are 
+first looked for in the object and
+then in its prototype.
+And since prototypes are themselves 
+objects, their prototype are used as well
+-making a chain until object.prototype
+
+idea 
+(10).times(n=> console.log(n));
+const squares = (10).times
+
+Classes abstraction
+abstractions can be classes 
+
+
+inheritance l - polymorphism 
+this concept doest not apply to js since method dispatch is independent of the argument type 
+
+//Prepare at home
+install node js 
+instal npm 
