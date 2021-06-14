@@ -1162,29 +1162,40 @@
 
 //Const failSafe working
 //Q18Aw
-const failSafe = value => cb => argument => { 
-    try{
-        return cb(argument);
-    }catch(error){
-        return value;
-    } 
-}
+// const failSafe = value => cb => argument => { 
+//     try{
+//         return cb(argument);
+//     }catch(error){
+//         return value;
+//     } 
+// }
 
 //palindrome wroking
 
-function palindrome(word){
+// function palindrome(word){
     
-    let arrayC = str2char(word).map( a => a.toLowerCase()).filter(a => isAlpha(a));
-    let length = arrayC.length; 
+//     let arrayC = str2chars(word).map( c => c.toLowerCase()).filter(c => isAlpha(c));
+//     let len = arrayC.length; 
     
-    for (let z = 0; z<length /2 ; z++){
-        if (arrayC[z] !== arrayC[length-1 - z]){
+//     for (let z = 0; z <len /2 ; z++){
+//         if (arrayC[z] !== arrayC[len-1 - z]){
        
-            return false;
+//             return false;
        
-        }
+//         }
 
-    }
-    return true;
-}
+//     }
+//     return true;
+// }
 
+// const door = {open: false};
+// const open = door => {
+//     if(door.open){
+//         return "already open";
+//     }
+
+//     door.open = true;
+//     return "true";
+// };
+// document.write("Door is ");
+// document.writeln(door.open || "closed");

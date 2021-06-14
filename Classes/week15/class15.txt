@@ -1,0 +1,115 @@
+Topics
+Thruthiness, conditionals
+
+Coercion, ==vs ===, ordering
+Deconstructrors, min,max
+Elvis and guards, [generators]
+
+
+Warm up 
+
+Equivalence and Transitivity 
+
+a == b == c => a ==c 
+
+0 == "0"
+0 == []
+0 == "/t" // is the other slash not this one. 
+
+Trinity 
+
+here goes a diagram with the things from up. 
+It is pretty much the same with the christianity  
+
+False 
+false
+null, undefined 
+'"
+0
+NaN
+
+
+Falsy
+
+falsy = what coerces to false
+true = everything that isnt false 
+truthy = what coerces to true
+
+Conditional context 
+
+
+Coercion 
+implicit: "0" == 0, + "0", !"0", !!"0"
+
+explicit: Number("0")== 0
+rule of thumb (not reliable) gives good indication 
+object -> string -> number -> boolean 
+
+== vs ===
+== coerces the operands // tries to move down to a boolean value 
+=== does not coerce 
+contrary to popular belief..... 
+
+=== would look for the types left and right if types doesnt match then is false (That is not true ) --> it is the one that doesnt apply no additional work, it only compairs left and right 
+it is the standard thing, applies an identity check  to left and right 
+
+== does much more that === because it applies all the magic  never use ==, use always === 
+
+takeaway 
+prefer === over == 
+remaining case: 
+(a == null) better than 
+(a === null || a===undefined) 
+
+
+crazy numbers 
+crazy comparision 
+
+cool: generators 
+
+function *foo(){
+    console.log( "a:b")
+    console.log( "a:b")
+
+}
+
+cool: deconstructor 
+function foo(){
+    var x = 2, y = 3;
+    return { x: x, y: y};
+
+}
+var o = foo(),
+    x = o.x, y = o.y;
+console.log(x,y)
+
+function foo(){
+    var x = 2, y = 3;
+    return { x: x, y: y};
+
+}
+var {x, y} - foo();
+console.log(x,y)
+
+
+cool: elvis and guard 
+let a = null;
+let b = a? a: "default"
+let b = a || "default"
+let b = a > guardedOperation(): a
+let b = a&& guardedOperation()
+
+New kids on the block
+since ECMAScript 2020 
+optional chaining operator
+receiver?.function()
+
+nullish coalescing operator (not the same as ||)
+?? operator(null or undefined)
+
+
+Crazy but not covered 
+finally edge cases, instanceOf 
+generator edge cases with return, for-of
+unreal arrays/lists, e.g. "arguments"
+class,new, this,valueOf 

@@ -1,0 +1,158 @@
+Start checking the feedback of the class.
+
+Comparing transpilers: 
+
+What they have in common
+Allow react / elm architecture for functional JavaScript /Spa 
+TypeScript + react 
+PureScript + Pux  / Halogen 
+Elm 
+
+they have in common: their cycle. 
+State-> render -> view -> trigers an action -> create a new state .. then (loop)
+
+
+typescript allows us to have interfaces ( javaScript not really you can use jsDoc but you dont get any compiler support )
+
+TypeScrip is invented by microsoft --> full super set of js -> every valid javaScript is also a valid typescript 
+javascript everywhere - > 
+typescript compiler takes typescript and produces javescript -> everything that can run it 
+
+properties are inmutable. 
+typescript gives us the opportunity to define the interface it can not really inforce inmutability 
+
+
+PureScript is not as specialized to the browser. 
+whenever you can run javascript you can rune purescript to create javascript
+
+TypeScript 
+Typed state
+actions as functions/;ambdas 
+state immutability with discipline 
+ojbect/ component abstraction 
+
+ELM 
+typed state
+action type with values
+state is immutable 
+update function is a fold 
+function composition 
+
+PureScript
+like elm 
+but even more Haskell-ish 
+ alling javascript ffi
+
+ typescript -> type declaration
+ purescript -> type declaration
+
+ elm -> port/flag
+
+ Paradigm 
+
+ typeScript  OO with generics 
+ PureScript funcitonal 
+ elm functional 
+
+ Approach 
+ TypeScript Language
+ PureScript laguage + tools
+ Elm programming system 
+
+
+ Coool 
+ TypeScript sum(union) type, String literal type 
+
+ PureScript Eff Modad, [GADT]
+
+ ELM time travel debug, semVer guarantee 
+
+ More transpilers
+ ClojureScript  clojure lisp 
+
+ PureScript function syntax 
+             name    quantifier    type variable 
+ signature  konst :: forall a b. a -> b -> a
+ definiton konst x y = x 
+                        args 
+
+
+PureScript exercise tries:
+###
+This is a warning only -->  FALSE / do not run 
+id :: forall a b . a -> b
+id x = x
+###
+
+
+once :: forall a b.(a->b) -> a -> b
+once f x = f x
+
+twice :: forall a. (a->a) -> a -> a
+twice f x = f (f x)
+###
+
+Compiles with warnings due to missing signatures 
+this one is true. 
+
+once f x = f x
+twice f x = f (f x)
+
+#####
+once :: forall a b.(a->b) -> a -> b
+once f x = f x
+
+twice :: forall a b. (a->b) -> a -> b
+twice f x = f (f x)
+
+###
+
+id x = x 
+### 
+id :: forall a b . a -> b
+id x = x
+
+####
+once :: forall a b.(a->b) -> a -> b
+once f x = f x
+
+twice f x = f (f x)
+
+
+##
+
+
+once :: forall a b.(a->b) -> a -> b
+once f x = f x
+
+twice :: forall a b.(a->b) -> a -> b
+twice f x = f x
+####
+id x = x 
+#####
+
+id :: forall a b . a -> b
+id x = x
+####
+
+once :: forall a b.(a->b) -> a -> b
+once f x = f x
+
+twice :: forall a b.(a->b) -> a -> b
+twice f x = f x
+
+#####
+id :: forall b . b => b 
+id x = x
+###
+id :: forall a b . a ->b
+id x =x 
+####
+
+once :: forall a b.(a->b) -> a -> b
+once f x = f x
+
+twice :: forall a b.(a->b) -> a -> a
+twice f x = f x
+
+
